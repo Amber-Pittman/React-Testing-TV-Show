@@ -18,13 +18,18 @@ const episodes = [
     {"id":909344,"url":"http://www.tvmaze.com/episodes/909344/stranger-things-2x04-chapter-four-will-the-wise","name":"Chapter Four: Will the Wise","season":2,"number":4,"airdate":"2017-10-27","airtime":"","airstamp":"2017-10-27T12:00:00+00:00","runtime":60,"image":{"medium":"http://static.tvmaze.com/uploads/images/medium_landscape/132/332045.jpg","original":"http://static.tvmaze.com/uploads/images/original_untouched/132/332045.jpg"},"summary":"<p>After his encounter with the shadow creature, Will's condition worsens. Meanwhile, Jim and El fight after Jim discovers that El disobeyed the rules, and Owens brings Nancy and Jonathan to Hawkins Labs for a chat.</p>","_links":{"self":{"href":"http://api.tvmaze.com/episodes/909344"}}}
 ]
 
-test('Gets episode info when rendered with new episode data', () => {
+test('Gets episode info when rendered with new episode data', done => {
     const { queryAllByTestId, rerender } = render(
         <Episodes error="" episodes={[]} />
     );
-
-    expect(queryAllByTestId(/episode/i)).toHaveLength(0);
-    expect(queryAllByTestId(/episode/i)).toStrictEqual([]);
+    
+    try {
+        expect(queryAllByTestId(/episode/i)).toHaveLength(0);
+        expect(queryAllByTestId(/episode/i)).toStrictEqual([]);
+        done();
+    } catch (error) {
+        done(error);
+    }    
 
     rerender(<Episodes error="" episodes={episodes} />)
 })

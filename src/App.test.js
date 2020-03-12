@@ -16,6 +16,6 @@ describe("App", () => {
 
     it("The app renders on the page", async() => {
         const text = await wrapper.findByText("Select a season");
-        expect(text).toBeInTheDocument()
+        expect(text).toBeInTheDocument();
     })
 });
