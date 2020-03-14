@@ -19,7 +19,7 @@ const episodes = [
 ]
 
 test('Gets episode info when rendered with new episode data', done => {
-    const { queryAllByTestId, rerender } = render(
+    const { queryAllByTestId } = render(
         <Episodes error="" episodes={[]} />
     );
     
@@ -31,7 +31,7 @@ test('Gets episode info when rendered with new episode data', done => {
         done(error);
     }    
 
-    rerender(<Episodes error="" episodes={episodes} />)
+    render(<Episodes error="" episodes={episodes} />)
 })
 
 // Found all IDs and other information on https://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes
