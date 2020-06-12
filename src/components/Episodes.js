@@ -7,7 +7,10 @@ export default function Episodes(props) {
       {props.episodes.map(e => (
         <div className="episode" key={e.id}>
           {e.image && (
-            <img className="episode-image" src={e.image.medium} alt={e.name} />
+            <img className="episode-image" 
+              src={e.image.medium} 
+              alt={e.name}
+              data-pin-nopin={true} />
           )}
           <div className="episode-info">
             <p className="episode-number">
